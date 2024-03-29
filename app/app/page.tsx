@@ -1,4 +1,4 @@
-import { Heading, Box, Image, VStack, Stack, HStack, Text, Spacer, Flex, Button, Wrap, SimpleGrid, Circle, ButtonGroup } from "@chakra-ui/react";
+import { Heading, Box, Image, VStack, Stack, Link, Text, Spacer, Flex, Button, Wrap, SimpleGrid, Circle, ButtonGroup } from "@chakra-ui/react";
 import chains from "./common/chains";
 export default function Index() {
   return (
@@ -11,7 +11,7 @@ export default function Index() {
               <Text fontSize={20} color='gray.400'>Commune is a revolutionary protocol that connects developer tools, fostering collaboration, interoperability, and innovation within the development community.</Text>
               <ButtonGroup>
                 <Button bg='green.400' color='wheat'>Contact Us</Button>
-                <Button bg='green.400' color='wheat'>View Our Data</Button>
+                <Button bg='green.400' color='wheat'><Link href="/price">View Our Data</Link></Button>
               </ButtonGroup>
             </Wrap>
           </VStack>

@@ -17,8 +17,11 @@
   "author": "alluring dove",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
     "dotenv": "^16.4.5",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "redstone-api": "^0.4.11"
   },
   "devDependencies": {
     "nodemon": "^3.1.0"
