@@ -1,2 +1,10 @@
-# com-oracle-hardhat
-Oracle Marketplace Hardhat Project
+# Commune AI Oracle MarketPlace
+
+## Dependencies
+
+## Run
+
+## Test
+
+## Deploy
+
