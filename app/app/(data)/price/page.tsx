@@ -23,7 +23,8 @@ export default function Price() {
   const [search, setSearch] = useState('');
   const getTokens = async (offset: any, limit: any, search: any) => {
     try {
-      const url = `${process.env.NEXT_PUBLIC_API_URL}/tokens?offset=${offset}&limit=${limit}&search=${search}`;
+      // const url = `${process.env.NEXT_PUBLIC_API_URL}/tokens?offset=${offset}&limit=${limit}&search=${search}`;
+      const url = `http://167.88.171.25:5000/tokens?offset=${offset}&limit=${limit}&search=${search}`;
       const response = await fetch(url);
       const data = await response.json();
       setTokensForPage(data)

@@ -30,7 +30,8 @@ export default function PriceDetail({ params }: { params: { token: string } }) {
 
     const getTokenInfo = async(token: string)=>{
         try {
-            const url = `${process.env.NEXT_PUBLIC_API_URL}/token?token=${tokenName}`;
+            // const url = `${process.env.NEXT_PUBLIC_API_URL}/token?token=${tokenName}`;
+            const url = `http://167.88.171.25:5000/token?token=${tokenName}`;
             const response = await fetch(url);
             const data = await response.json();
             setTokenInfo(data.tokenPrice);
@@ -52,6 +53,7 @@ export default function PriceDetail({ params }: { params: { token: string } }) {
 
     useEffect(()=>{
         getTokenInfo(tokenName);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [tokenName]);
 
     return (
@@ -60,7 +62,7 @@ export default function PriceDetail({ params }: { params: { token: string } }) {
                 <CardBody>
                     <VStack align={'start'}>
                         <HStack>
-                            <Image src={tokenInfo.logoURI} w={30}></Image>
+                            <Image src={tokenInfo.logoURI} alt={"img"} w={30}></Image>
                             <Heading size='md'>{tokenInfo.symbol}</Heading>
                             <Text fontSize={30} fontWeight={700}>${tokenInfo.value}</Text>
                         </HStack>

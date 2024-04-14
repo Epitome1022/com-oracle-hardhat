@@ -25,13 +25,15 @@ import {
     sepolia,
     zora,
 } from 'wagmi/chains';
+import { DAppProvider } from '@usedapp/core';
+import config from './conf/config';
 
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import { WagmiProvider } from 'wagmi';
 
 const { wallets } = getDefaultWallets();
 
-const config = getDefaultConfig({
+const getconfig = getDefaultConfig({
   appName: 'commune oracle frontend',
   projectId: 'YOUR_PROJECT_ID',
   wallets: [
@@ -56,16 +58,18 @@ const config = getDefaultConfig({
 const queryClient = new QueryClient();
 
 export default function providers({children} : { children: React.ReactNode}) {
-    return (
-        <WagmiProvider config={config}>
-            <QueryClientProvider client={queryClient}>
-                <RainbowKitProvider>
-                  {/* <CacheProvider> */}
-                    {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
-                    <ChakraProvider resetCSS theme={theme}>{children}</ChakraProvider>
-                  {/* </CacheProvider> */}
-                </RainbowKitProvider>
-            </QueryClientProvider>
-        </WagmiProvider>
-    )
+  return (
+    <DAppProvider config={config}>
+      <WagmiProvider config={getconfig}>
+        <QueryClientProvider client={queryClient}>
+          <RainbowKitProvider>
+            {/* <CacheProvider> */}
+              {/* <ColorModeScript initialColorMode={theme.config.initialColorMode} /> */}
+              <ChakraProvider resetCSS theme={theme}>{children}</ChakraProvider>
+            {/* </CacheProvider> */}
+          </RainbowKitProvider>
+        </QueryClientProvider>
+      </WagmiProvider>
+    </DAppProvider>
+  )
 }
